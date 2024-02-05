@@ -11,7 +11,9 @@ public final class PointOperator {
      * @param translateVector Translation to apply
      */
     public static void translate(Double[] vector, Double[] translateVector) {
-
+        for(int i = 0 ; i < vector.length ; i++) {
+            vector[i]+=translateVector[i];
+        }
     }
 
     /** TODO
@@ -21,6 +23,16 @@ public final class PointOperator {
      * @param rotationMatrix Matrix by which to rotate
      */
     public static void rotate(Double[] vector, Double[][] rotationMatrix) {
+        int vectorSize = vector.length;
+        Double[] result = new Double[vectorSize];
+        for(int i = 0 ; i < vectorSize ; i++) {
+            double sum = 0;
+            for(int j = 0 ; j < vectorSize ; j++) {
+                sum+= rotationMatrix[i][j] * vector[j];
+            }
+            result[i] = sum;
+        }
+        System.arraycopy(result,0,vector,0,vectorSize);
 
     }
 
@@ -30,6 +42,9 @@ public final class PointOperator {
      * @param divider Scalar by which to divide
      */
     public static void divide(Double[] vector, Double divider) {
+        for (int i = 0 ; i < vector.length ; i++) {
+            vector[i] /= divider;
+        }
 
     }
 
@@ -39,7 +54,9 @@ public final class PointOperator {
      * @param multiplier Scalar by which to multiply
      */
     public static void multiply(Double[] vector, Double multiplier) {
-
+        for (int i = 0 ; i < vector.length ; i++) {
+            vector[i] *= multiplier;
+        }
     }
 
     /** TODO
@@ -48,6 +65,8 @@ public final class PointOperator {
      * @param adder Scalar to add to vector
      */
     public static void add(Double[] vector, Double adder) {
-
+        for (int i = 0 ; i < vector.length ; i++) {
+            vector[i] += adder;
+        }
     }
 }
