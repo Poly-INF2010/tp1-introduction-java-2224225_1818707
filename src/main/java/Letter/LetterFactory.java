@@ -174,13 +174,22 @@ public final class LetterFactory {
     public static BaseShape create_O() {
         Collection<Point2d> lettreO = new ArrayList<>();
 
-        //ellipse exterieure
-        Ellipse countour = new Ellipse(12.0, 32.0);
-        lettreO.addAll(countour.cloneCoords());
+        Rectangle barreVerticale = new Rectangle(0.5, 32.0);
+        lettreO.addAll(barreVerticale.cloneCoords());
 
-        // ellipse interieure (creuse)
-        Ellipse interieure = new Ellipse(4.0,10.0);
-        lettreO.removeAll(interieure.cloneCoords());
+        Rectangle barreDroite = new Rectangle(0.5, 32.0);
+        barreDroite.translate(barreDroite.getCoords(), new Point2d(10.0, 0.0));
+        lettreO.addAll(barreDroite.getCoords());
+
+
+        Rectangle barreHaut = new Rectangle(10.0, 1.0);
+        barreHaut.translate(barreHaut.getCoords(), new Point2d(5.0, -16.0));
+        lettreO.addAll(barreHaut.getCoords());
+
+        Rectangle barreBas = new Rectangle(10.0, 1.0);
+        barreBas.translate(barreBas.getCoords(), new Point2d(5.0, 16.0));
+        lettreO.addAll(barreBas.getCoords());
+
 
         return new BaseShape(lettreO);
     }
