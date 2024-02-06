@@ -18,17 +18,17 @@ public class LetterTest {
         tesseract.setLanguage("fra");
 
         LetterPlacer letterPlacer = new LetterPlacer();
-//        letterPlacer.placeNext('B');
+        letterPlacer.placeNext('B');
         letterPlacer.placeNext('O');
-        //letterPlacer.placeNext('N');
-        //letterPlacer.placeNext('N');
-        //letterPlacer.placeNext('E');
-        //letterPlacer.placeNextln('C');
-        //letterPlacer.placeNext('H');
-        //letterPlacer.placeNext('A');
-        //letterPlacer.placeNext('N');
-        //letterPlacer.placeNext('C');
-        //letterPlacer.placeNext('E');
+        letterPlacer.placeNext('N');
+        letterPlacer.placeNext('N');
+        letterPlacer.placeNext('E');
+        letterPlacer.placeNextln('C');
+        letterPlacer.placeNext('H');
+        letterPlacer.placeNext('A');
+        letterPlacer.placeNext('N');
+        letterPlacer.placeNext('C');
+        letterPlacer.placeNext('E');
         letterPlacer.saveImage("all", true);
 
         File tmpFile = new File("all.jpg");
