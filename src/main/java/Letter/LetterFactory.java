@@ -155,13 +155,13 @@ public final class LetterFactory {
         lettreN.addAll(barreVerticale.cloneCoords());
 
         Rectangle barreDroite = new Rectangle(0.5, 32.0);
-        barreDroite.translate(barreDroite.getCoords(), new Point2d(10.0, 0.0));
+        barreDroite.translate(barreDroite.getCoords(), new Point2d(15.0, 0.0));
         lettreN.addAll(barreDroite.getCoords());
 
         //barre diagonale
-        Rectangle barreDiagonale = new Rectangle(10.0, 1.0);
-        barreDiagonale.rotate(barreDiagonale.getCoords(), Math.toRadians(-50.0));
-        barreDiagonale.translate(barreDiagonale.getCoords(), new Point2d(2.0, 8.0));
+        Rectangle barreDiagonale = new Rectangle(32.0, 0.5);
+        barreDiagonale.rotate(barreDiagonale.getCoords(), Math.toRadians(70.0));
+        barreDiagonale.translate(barreDiagonale.getCoords(), new Point2d(7.0, 0.0));
         lettreN.addAll(barreDiagonale.getCoords());
 
         return new BaseShape(lettreN);
