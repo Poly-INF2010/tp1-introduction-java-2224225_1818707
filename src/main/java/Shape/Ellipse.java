@@ -13,20 +13,19 @@ public class Ellipse extends BaseShape {
      */
     public Ellipse(Double widthDiameter, Double heightDiameter) {
 
-        Collection<Point2d> pointsOfEllipse = new ArrayList<>();
+        Collection<Point2d> ellipseCoordinates = new ArrayList<>();
 
         double halfWidth = widthDiameter / 2;
         double halfHeight = heightDiameter / 2;
 
-        for (double y = -halfHeight; y <= halfHeight; y += 0.5) {
-            double xBound = halfWidth * Math.sqrt(1 - Math.pow(y / halfHeight, 2));
-            for (double x = -xBound; x <= xBound; x += 0.5) {
-                pointsOfEllipse.add(new Point2d(x, y));
-                pointsOfEllipse.add(new Point2d(-x, y));
+        for (double yCoordinate = -halfHeight; yCoordinate <= halfHeight; yCoordinate += 0.5) {
+            double absoluteXValue = halfWidth * Math.sqrt(1 - Math.pow(yCoordinate / halfHeight, 2));
+            for (double xCoordinate = -absoluteXValue; xCoordinate <= absoluteXValue; xCoordinate += 0.5) {
+                ellipseCoordinates.add(new Point2d(xCoordinate, yCoordinate));
             }
         }
 
-        this.addAll(pointsOfEllipse);
+        this.addAll(ellipseCoordinates);
 
     }
 
@@ -35,20 +34,19 @@ public class Ellipse extends BaseShape {
      * @param dimensions 2D point containing the width and height of the Ellipse
      */
     public Ellipse(Point2d dimensions) {
-        Collection<Point2d> pointsOfEllipse = new ArrayList<>();
+        Collection<Point2d> ellipseCoordinates = new ArrayList<>();
 
         double halfWidth = dimensions.X() / 2;
         double halfHeight = dimensions.Y() / 2;
 
-        for (double y = -halfHeight; y <= halfHeight; y += 0.5) {
-            double xBound = halfWidth * Math.sqrt(1 - Math.pow(y / halfHeight, 2));
-            for (double x = -xBound; x <= xBound; x += 0.5) {
-                pointsOfEllipse.add(new Point2d(x, y));
-                pointsOfEllipse.add(new Point2d(-x, y));
+        for (double yCoordinate = -halfHeight; yCoordinate <= halfHeight; yCoordinate += 0.5) {
+            double absoluteXValue = halfWidth * Math.sqrt(1 - Math.pow(yCoordinate / halfHeight, 2));
+            for (double xCoordinate = -absoluteXValue; xCoordinate <= absoluteXValue; xCoordinate += 0.5) {
+                ellipseCoordinates.add(new Point2d(xCoordinate, yCoordinate));
             }
         }
 
-        this.addAll(pointsOfEllipse);
+        this.addAll(ellipseCoordinates);
     }
 
     /**
@@ -57,35 +55,34 @@ public class Ellipse extends BaseShape {
      */
     private Ellipse(Collection<Point2d> coords) {
         // Calculate the width and height using the coordinates
-        double minX = Double.MAX_VALUE;
-        double minY = Double.MAX_VALUE;
-        double maxX = -Double.MAX_VALUE;
-        double maxY = -Double.MAX_VALUE;
+        double minValueOfX = Double.MAX_VALUE;
+        double minValueOfY = Double.MAX_VALUE;
+        double maxValueOfX = -Double.MAX_VALUE;
+        double maxValueOfY = -Double.MAX_VALUE;
 
         for (Point2d point : coords) {
-            minX = Math.min(minX, point.X());
-            minY = Math.min(minY, point.Y());
-            maxX = Math.max(maxX, point.X());
-            maxY = Math.max(maxY, point.Y());
+            minValueOfX = Math.min(minValueOfX, point.X());
+            minValueOfY = Math.min(minValueOfY, point.Y());
+            maxValueOfX = Math.max(maxValueOfX, point.X());
+            maxValueOfY = Math.max(maxValueOfY, point.Y());
         }
 
-        double widthValue = maxX - minX;
-        double heightValue = maxY - minY;
+        double valueOfWidth = maxValueOfX - minValueOfX;
+        double valueOfHeight = maxValueOfY - minValueOfY;
 
 
-        Collection<Point2d> pointsOfEllipse = new ArrayList<>();
+        Collection<Point2d> ellipseCoordinates = new ArrayList<>();
 
-        double halfWidth = widthValue / 2;
-        double halfHeight = heightValue / 2;
+        double halfWidth = valueOfWidth / 2;
+        double halfHeight = valueOfHeight / 2;
 
-        for (double y = -halfHeight; y <= halfHeight; y += 0.5) {
-            double xBound = halfWidth * Math.sqrt(1 - Math.pow(y / halfHeight, 2));
-            for (double x = -xBound; x <= xBound; x += 0.5) {
-                pointsOfEllipse.add(new Point2d(x, y));
-                pointsOfEllipse.add(new Point2d(-x, y));
+        for (double yCoordinate = -halfHeight; yCoordinate <= halfHeight; yCoordinate += 0.5) {
+            double absoluteXValue = halfWidth * Math.sqrt(1 - Math.pow(yCoordinate / halfHeight, 2));
+            for (double xCoordinate = -absoluteXValue; xCoordinate <= absoluteXValue; xCoordinate += 0.5) {
+                ellipseCoordinates.add(new Point2d(xCoordinate, yCoordinate));
             }
         }
-        this.addAll(pointsOfEllipse);
+        this.addAll(ellipseCoordinates);
     }
 
     /** TODO

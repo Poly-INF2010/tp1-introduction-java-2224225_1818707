@@ -18,14 +18,14 @@ public class Rectangle extends BaseShape {
 
         Collection<Point2d> rectangleCoordinates = new ArrayList<>();
 
-        int numPointsWidth = (int) Math.ceil(width / 0.5); // 10
-        int numPointsHeight = (int) Math.ceil(height / 0.5); // 5
+        int numberOfPointsOfWidth = (int) Math.ceil(width / 0.5);
+        int numberOfPointsOfHeight = (int) Math.ceil(height / 0.5);
 
-        for (int i = 0; i < numPointsWidth; i++) {
-            double x = -halfOfWidth + i * 0.5;
-            for (int j = 0; j < numPointsHeight; j++) {
-                double y = -halfOfHeight + j * 0.5;
-                rectangleCoordinates.add(new Point2d(x, y));
+        for (int i = 0; i < numberOfPointsOfWidth; i++) {
+            double xCoordinate = -halfOfWidth + i * 0.5;
+            for (int j = 0; j < numberOfPointsOfHeight; j++) {
+                double yCoordinate = -halfOfHeight + j * 0.5;
+                rectangleCoordinates.add(new Point2d(xCoordinate, yCoordinate));
             }
         }
 
@@ -42,14 +42,14 @@ public class Rectangle extends BaseShape {
 
         Collection<Point2d> rectangleCoordinates = new ArrayList<>();
 
-        int numPointsWidth = (int) Math.ceil(halfOfWidth*2 / 0.5);
-        int numPointsHeight = (int) Math.ceil(halfOfHeight*2 / 0.5);
+        int numberOfPointsOfWidth = (int) Math.ceil(halfOfWidth*2 / 0.5);
+        int numberOfPointsOfHeight = (int) Math.ceil(halfOfHeight*2 / 0.5);
 
-        for (int i = 0; i < numPointsWidth; i++) {
-            double x = -halfOfWidth + i * 0.5;
-            for (int j = 0; j < numPointsHeight; j++) {
-                double y = -halfOfHeight + j * 0.5;
-                rectangleCoordinates.add(new Point2d(x, y));
+        for (int i = 0; i < numberOfPointsOfWidth; i++) {
+            double xCoordinate = -halfOfWidth + i * 0.5;
+            for (int j = 0; j < numberOfPointsOfHeight; j++) {
+                double yCoordinate = -halfOfHeight + j * 0.5;
+                rectangleCoordinates.add(new Point2d(xCoordinate, yCoordinate));
             }
         }
 
@@ -62,34 +62,34 @@ public class Rectangle extends BaseShape {
      */
     private Rectangle(Collection<Point2d> coords) {
         // Calculate the width and height using the coordinates
-        double minX = Double.MAX_VALUE;
-        double minY = Double.MAX_VALUE;
-        double maxX = -Double.MAX_VALUE;
-        double maxY = -Double.MAX_VALUE;
+        double minValueOfX = Double.MAX_VALUE;
+        double minValueOfY = Double.MAX_VALUE;
+        double maxValueOfX = -Double.MAX_VALUE;
+        double maxValueOfY = -Double.MAX_VALUE;
 
         for (Point2d point : coords) {
-            minX = Math.min(minX, point.X());
-            minY = Math.min(minY, point.Y());
-            maxX = Math.max(maxX, point.X());
-            maxY = Math.max(maxY, point.Y());
+            minValueOfX = Math.min(minValueOfX, point.X());
+            minValueOfY = Math.min(minValueOfY, point.Y());
+            maxValueOfX = Math.max(maxValueOfX, point.X());
+            maxValueOfY = Math.max(maxValueOfY, point.Y());
         }
 
-        double widthValue = maxX - minX;
-        double heightValue = maxY - minY;
+        double valueOfWidth = maxValueOfX - minValueOfX;
+        double valueOfHeight = maxValueOfY - minValueOfY;
 
-        double halfOfWidth = widthValue / 2;
-        double halfOfHeight = heightValue / 2;
+        double halfOfWidth = valueOfWidth / 2;
+        double halfOfHeight = valueOfHeight / 2;
 
         Collection<Point2d> rectangleCoordinates = new ArrayList<>();
 
-        int numPointsWidth = (int) Math.ceil(halfOfWidth*2 / 0.5);
-        int numPointsHeight = (int) Math.ceil(halfOfHeight*2 / 0.5);
+        int numberOfPointsOfWidth = (int) Math.ceil(halfOfWidth*2 / 0.5);
+        int numberOfPointsOfHeight = (int) Math.ceil(halfOfHeight*2 / 0.5);
 
-        for (int i = 0; i < numPointsWidth; i++) {
-            double x = -halfOfWidth + i * 0.5;
-            for (int j = 0; j < numPointsHeight; j++) {
-                double y = -halfOfHeight + j * 0.5;
-                rectangleCoordinates.add(new Point2d(x, y));
+        for (int i = 0; i < numberOfPointsOfWidth; i++) {
+            double xCoordinate = -halfOfWidth + i * 0.5;
+            for (int j = 0; j < numberOfPointsOfHeight; j++) {
+                double yCoordinate = -halfOfHeight + j * 0.5;
+                rectangleCoordinates.add(new Point2d(xCoordinate, yCoordinate));
             }
         }
 

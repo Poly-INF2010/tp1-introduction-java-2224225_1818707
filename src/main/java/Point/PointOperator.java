@@ -33,7 +33,6 @@ public final class PointOperator {
             result[i] = sum;
         }
         System.arraycopy(result,0,vector,0,vectorSize);
-
     }
 
     /** TODO
