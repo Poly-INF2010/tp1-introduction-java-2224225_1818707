@@ -1,0 +1,8 @@
+Points	5/5
+Formes	4/5
+Lettres	4/5
+Qualité de code et Design	4/5
+Total	17/20
+
+les methodes comme baseShape (add baseshape) devraient utiliser addALL ( duplication de code)
+votre image générée est trop différente de l'image demandée.
